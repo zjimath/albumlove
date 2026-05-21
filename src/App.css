@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #100c10;
+  --bg2: #150f14;
+  --rose: #e8857a;
+  --peach: #e8c27a;
+  --lilac: #c5a8e8;
+  --text: #f5eee8;
+  --muted: #a08880;
+  --dim: #5a4a44;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Fondo con estrellas ── */
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.bg-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: var(--size, 2px);
+  height: var(--size, 2px);
+  background: #f5eee8;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--dur, 3s) var(--delay, 0s) ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0; }
+  50%  { opacity: 0.35; }
+  100% { opacity: 0.05; }
+}
+
+/* ── Layout ── */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Scrollbar discreta ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #3d1e20;
+  border-radius: 2px;
+}
+
+/* ── Selección de texto ── */
+::selection {
+  background: rgba(232, 133, 122, 0.2);
+  color: var(--text);
+}

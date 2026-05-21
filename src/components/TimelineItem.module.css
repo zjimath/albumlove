@@ -1,0 +1,256 @@
+.item {
+  display: flex;
+  gap: 0;
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* ── Columna del dot ── */
+.dotCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  flex-shrink: 0;
+  width: 36px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #c9a0a0;
+  background: #1a1015;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.dotActive {
+  border-color: #e8857a;
+  background: #3d1e20;
+  box-shadow: 0 0 10px rgba(232, 133, 122, 0.3);
+}
+
+.dotHeart {
+  font-size: 7px;
+  color: #e8857a;
+  opacity: 0;
+  transition: opacity 0.3s;
+  line-height: 1;
+}
+
+.dotActive .dotHeart {
+  opacity: 1;
+}
+
+/* ── Card ── */
+.card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(201, 160, 160, 0.15);
+  border-radius: 14px;
+  margin: 8px 0 16px 12px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(232, 133, 122, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cardOpen {
+  border-color: rgba(232, 133, 122, 0.4);
+  background: rgba(61, 30, 32, 0.2);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tagRose {
+  background: rgba(232, 133, 122, 0.15);
+  color: #f0a99f;
+  border: 0.5px solid rgba(232, 133, 122, 0.25);
+}
+
+.tagPeach {
+  background: rgba(230, 180, 130, 0.15);
+  color: #e8c27a;
+  border: 0.5px solid rgba(230, 180, 130, 0.25);
+}
+
+.tagLilac {
+  background: rgba(180, 150, 220, 0.15);
+  color: #c5a8e8;
+  border: 0.5px solid rgba(180, 150, 220, 0.25);
+}
+
+.headerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: #f0e8e0;
+  margin: 0 0 3px;
+  line-height: 1.3;
+}
+
+.date {
+  font-size: 11px;
+  color: #7a6560;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.chevron {
+  font-size: 22px;
+  color: #7a6560;
+  transition: transform 0.3s ease, color 0.3s;
+  flex-shrink: 0;
+  margin-top: -2px;
+  line-height: 1;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+  color: #e8857a;
+}
+
+/* ── Detail expandible ── */
+.detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detailOpen {
+  max-height: 900px;
+}
+
+.detailInner {
+  padding: 0 16px 18px;
+  border-top: 0.5px solid rgba(201, 160, 160, 0.1);
+  margin-top: 0;
+  padding-top: 14px;
+}
+
+.message {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: #c4afa8;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* ── Photo grids ── */
+.photoGrid {
+  display: grid;
+  gap: 6px;
+}
+
+.grid1 { grid-template-columns: 1fr; }
+.grid2 { grid-template-columns: 1fr 1fr; }
+.grid3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid4 { grid-template-columns: 1fr 1fr; }
+
+/* 5 fotos: primera ocupa todo el ancho, las otras 4 en 2 columnas */
+.grid5 {
+  grid-template-columns: 1fr 1fr;
+}
+.grid5 .photoSlot:first-child {
+  grid-column: span 2;
+}
+
+.photoSlot {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #1e1318;
+  cursor: zoom-in;
+}
+
+.photoSlot:hover .photo {
+  transform: scale(1.04);
+  transition: transform 0.35s ease;
+}
+
+.zoomHint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: rgba(10, 7, 10, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+  border-radius: 8px;
+}
+
+.photoSlot:hover .zoomHint {
+  opacity: 1;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.02);
+  border: 0.5px dashed rgba(201, 160, 160, 0.2);
+  border-radius: 8px;
+}
+
+.photoIcon {
+  font-size: 25px;
+  opacity: 0.4;
+}
+
+.photoHint {
+  font-size: 10px;
+  color: #5a4a44;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0 6px;
+}

@@ -1,0 +1,57 @@
+.section {
+  padding: 0 0 60px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Línea vertical continua detrás de los dots */
+.line {
+  position: relative;
+  padding-left: 0;
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  left: 17px; /* center de .dotCol (36px / 2 = 18, menos 1px) */
+  top: 28px;
+  bottom: 28px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201, 160, 160, 0.2) 8%,
+    rgba(201, 160, 160, 0.2) 92%,
+    transparent
+  );
+}
+
+/* Final de la línea */
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.endLine {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(201, 160, 160, 0.2), transparent);
+}
+
+.endHeart {
+  font-size: 18px;
+  color: #e8857a;
+  opacity: 0.7;
+}
+
+.endText {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #5a4a44;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
