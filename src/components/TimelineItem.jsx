@@ -36,14 +36,14 @@ function PhotoGrid({ count, labels }) {
             onClick={(e) => {
               if (label) {
                 e.stopPropagation(); // no colapsa la card
-                setLightbox(`/src/assets/${label}`);
+                setLightbox(`/assets/${label}`);
               }
             }}
           >
             {label ? (
               <>
                 <img
-                  src={`/src/assets/${label}`}
+                  src={`/assets/${label}`}
                   alt={`Foto ${i + 1}`}
                   className={styles.photo}
                   onError={(e) => {
