@@ -36,7 +36,7 @@ function PhotoGrid({ count, labels }) {
             onClick={(e) => {
               if (label) {
                 e.stopPropagation(); // no colapsa la card
-                setLightbox(`albumlove/assets/${label}`);
+                setLightbox(`/albumlove/assets/${label}`);
               }
             }}
           >
